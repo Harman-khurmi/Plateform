@@ -85,13 +85,13 @@ export default function Login() {
             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" for="exampleCheck1" style={{ color: 'grey' }}>remember me</label>
           </div>
-          <button type="submit" className="btn btn-outline-success" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>Login</button>
+          <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>Login</button>
 
 
-          <div id="emailHelp" className="form-text mt-5" style={{ color: 'grey', marginLeft: 135 }}>Don't have an account? <Link to="Signup" style={{ textDecoration: 'none', color: 'blue' }}>SignUp</Link></div>
+          <div id="emailHelp" className="form-text mt-3" style={{ color: 'grey', marginLeft: 135 }}>Don't have an account? <Link to="Signup" style={{ textDecoration: 'none', color: 'blue' }}>SignUp</Link></div>
         </form>
       </div>
-      <div id="emailHelp" className="form-text mt-2" style={{ color: 'black', marginLeft: 690 }}>Forgot password? <Link to="Forgotpass" style={{ textDecoration: 'none', color: 'blue' }}>click here</Link></div>
+      {/* <div id="emailHelp" className="form-text mt-2" style={{ color: 'black', marginLeft: 690 }}>Forgot password? <Link to="Forgotpass" style={{ textDecoration: 'none', color: 'blue' }}>click here</Link></div> */}
     </>
   );
 }
