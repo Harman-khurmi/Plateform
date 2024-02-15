@@ -41,7 +41,8 @@ export default function Signup() {
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
       } else {
-        console.log("error inside response ");
+        const errorData = await response.json(); // Get error response data
+        console.log("Error response: ", errorData);
       }
     } catch (error) {
       console.error("Error register fetch", error);
@@ -113,7 +114,8 @@ export default function Signup() {
           </div>
 
           <button type="submit" className="btn btn-outline-success mt-2" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
-          <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link>
+            {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}
+            Signup
           </button>
         </form>
       </div>
