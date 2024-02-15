@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-
+import { Link } from "react-router-dom";
 export default function Signup() {
   const [user, setUser] = useState({
     name: "",
@@ -59,7 +59,7 @@ export default function Signup() {
   }
   return (
     <>
-      <div className='container mt-5 text-bg-dark p-3' style={{ width: 500, height: 550, borderRadius: 10 }}>
+      <div className='container mt-5 text-bg-dark p-3' style={{ width: 500, height: 600, borderRadius: 10 }}>
         <p className="bgimg mb-5" style={{ marginLeft: 170, fontSize: 35, fontFamily: 'Hubballi' }}>Signup</p>
         {/* <img src="D:\Car-parking project\car-parking\src\Components\parking.jpg" alt="" class="bg-image"/> */}
         <form onSubmit={handleSubmit}>
@@ -112,8 +112,8 @@ export default function Signup() {
               name='password' />
           </div>
 
-          <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
-            Signup
+          <button type="submit" className="btn btn-outline-success mt-2" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
+          <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link>
           </button>
         </form>
       </div>
