@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const router = require('./router/auth-router');
-const connectDB = require('./utils/db');
 const port = 3001;
 const mongoose = require('mongoose');
 const cors = require('cors')

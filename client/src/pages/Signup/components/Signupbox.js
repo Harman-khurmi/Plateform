@@ -41,10 +41,10 @@ export default function Signup() {
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
       } else {
-        console.log("error inside response ", "error");
+        console.log("error inside response ");
       }
     } catch (error) {
-      console.error("Error", error);
+      console.error("Error register fetch", error);
     }
   };
 
@@ -66,6 +66,7 @@ export default function Signup() {
           <div className="mb-4" style={myStyle2}>
             <label for="exampleName" className="form-label">Name</label>
             <input
+              required
               type="text"
               className="form-control"
               style={myStyle}
@@ -77,6 +78,7 @@ export default function Signup() {
           <div className="mb-4" style={myStyle2}>
             <label for="exampleRollNumber" className="form-label">Roll Number</label>
             <input
+              required
               type="number"
               className="form-control"
               style={myStyle}
@@ -88,6 +90,7 @@ export default function Signup() {
           <div className="mb-4" style={myStyle2}>
             <label for="exampleHostelName" className="form-label">Hostel Name</label>
             <input
+              required
               type="text"
               className="form-control"
               style={myStyle}
@@ -99,6 +102,7 @@ export default function Signup() {
           <div className="mb-4" style={myStyle2}>
             <label for="exampleInputPassword1" className="form-label">Password</label>
             <input
+              required
               type="password"
               className="form-control"
               style={myStyle}
