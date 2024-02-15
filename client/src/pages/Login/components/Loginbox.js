@@ -34,11 +34,12 @@ export default function Login() {
           },
           body: JSON.stringify(user),
         });
+      console.log(response);
       if (response.ok) {
         alert("Login successfull");
         setUser({ rollnumber: "", password: "", });
       } else {
-        console.log("error inside response ", "error");
+        console.log("error inside response login fetch", "error");
       }
     } catch (error) {
       console.error("Error", error);
@@ -62,6 +63,7 @@ export default function Login() {
           <div className="mb-3" style={myStyle2}>
             <label for="exampleInputEmail1" className="form-label">Roll Number</label>
             <input
+              required
               type="string"
               className="form-control"
               style={myStyle}
@@ -73,6 +75,7 @@ export default function Login() {
           <div className="mb-3" style={myStyle2}>
             <label for="exampleInputPassword1" className="form-label">Password</label>
             <input
+              required
               type="password"
               className="form-control"
               style={myStyle}
