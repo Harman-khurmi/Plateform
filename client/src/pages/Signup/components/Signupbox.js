@@ -43,8 +43,8 @@ export default function Signup() {
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
       } else {
-        // const errorData = await response.json(); // Get error response data
-        console.log("Error response: ", 'errorData');
+        const errorData = await response.json(); // Get error response data
+        console.log("Error response: ", errorData);
       }
     } catch (error) {
       console.error("Error register fetch", error);
