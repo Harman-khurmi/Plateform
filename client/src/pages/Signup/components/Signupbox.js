@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from "react-router-dom";
 
 
 export default function Signup() {
@@ -42,8 +41,9 @@ export default function Signup() {
         alert("Registration successful, Please login with same credentials");
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
+        window.location.href = "/";
       } else {
-        const errorData = await response.json(); // Get error response data
+        const errorData = await response.json();
         console.log("Error response: ", errorData);
       }
     } catch (error) {

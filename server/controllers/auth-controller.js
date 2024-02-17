@@ -43,22 +43,9 @@ const validateLogin = async (rollnumber, password) => {
     if (!rollnumber) {
         errors.rollnumber = "Roll number is required";
     }
-    // else if (isNaN(rollnumber)) {
-    //     errors.rollnumber = "Rollnumber must be a number";
-    // } else if (rollnumber < 100000000 || rollnumber > 999999999) {
-    //     errors.rollnumber = "Rollnumber should be of 9 digits";
-    // }
-
     if (!password) {
         errors.password = "Password is required";
     }
-    // else if (password.trim().length < 8) {
-    //     errors.password = "Password should be at least 8 characters long";
-    // } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]+$/.test(password)) {
-    //     errors.password = "Password must have at least 1 capital letter, 1 small letter, 1 digit, and 1 special character";
-    // }
-
-
     if (Object.keys(errors).length > 0) {
         return { errors };
     }
@@ -103,10 +90,12 @@ const login = async (req, res) => {
         const { rollnumber, password } = req.body;
         const validationErrors = await validateLogin(rollnumber, password);
         if (validationErrors) {
-            return res.status(422).json(validationErrors);
+            return res.status(422).json({ errors: validationErrors });
         }
         const userExist = await User.findOne({ rollnumber });
-        if (!userExist) { return res.send('Please register your room first'); }
+        if (!userExist) {
+            return res.status(422).json({ error: 'Please register your room first' });
+        }
         const isPassValid = await userExist.compPass(password);
         if (isPassValid) {
             return res.status(200).json({
@@ -115,10 +104,10 @@ const login = async (req, res) => {
                 userId: userExist._id.toString(),
             });
         } else {
-            res.status(400).json({ msg: "Invalid Credentials" });
+            res.status(400).json({ error: "Invalid Credentials" });
         }
     } catch (error) {
-        res.status(400).send({ msg: 'Login not found' });
+        res.status(400).send({ msg: 'Login not found backend' });
     }
 }
 module.exports = { home, register, login };

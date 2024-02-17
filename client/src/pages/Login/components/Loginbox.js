@@ -34,15 +34,19 @@ export default function Login() {
           },
           body: JSON.stringify(user),
         });
-      console.log(response);
+      console.log("response data : ", response);
       if (response.ok) {
+        const responseData = await response.json();
         alert("Login successfull");
         setUser({ rollnumber: "", password: "", });
+        console.log(responseData);
+        window.location.href = "/Signup";// i am puting here signup route, put here our next page
       } else {
-        console.log("error inside response login fetch", "error");
+        const errorData = await response.json();
+        console.log("Error response", errorData);
       }
     } catch (error) {
-      console.error("Error", error);
+      console.error("Error login fetch", error);
     }
 
   };
@@ -88,9 +92,7 @@ export default function Login() {
             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" for="exampleCheck1" style={{ color: 'grey' }}>remember me</label>
           </div>
-          <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}><Link to="main" style={{textDecoration:'none', color:'white'}}>Login</Link></button>
-
-
+          <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>Login</button>
           <div id="emailHelp" className="form-text mt-3" style={{ color: 'grey', marginLeft: 135 }}>Don't have an account? <Link to="Signup" style={{ textDecoration: 'none', color: 'blue' }}>SignUp</Link></div>
         </form>
       </div>
