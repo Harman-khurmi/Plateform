@@ -27,7 +27,7 @@ export default function Signup() {
     console.log(user);
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/register",
+      const response = await fetch("https://digital-mess-server.vercel.app/register",
         {
           method: "POST",
           headers: {
