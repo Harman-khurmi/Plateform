@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const router = require('./router/auth-router');
+const authRouter = require('./router/auth-router');
+const qrRouter = require('./router/qr-router')
 const port = 3001;
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -16,9 +17,15 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use('/api/auth/', router)
+app.use('/api/auth/', authRouter)
+app.use('/api/qr/', qrRouter)
 
-if (mongoose.connect('mongodb+srv://robert:robert1002@cluster0.eetagrv.mongodb.net/digital_mess?retryWrites=true&w=majority')) {
+if (mongoose.connect('mongodb+srv://robert:robert1002@cluster0.eetagrv.mongodb.net/digital_mess?retryWrites=true&w=majority'), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+}) {
     console.log("connection successful to DB");
 }
 

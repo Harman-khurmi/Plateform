@@ -36,6 +36,12 @@ const validateSignUp = async (password, name, rollnumber, hostelname) => {
     return null;
 }
 
+const checkSignup = async (name) => {
+    const errors = {};
+    errors.rollnumber = `Room already occupied by ${name}`;
+    return { errors };
+}
+
 
 const validateLogin = async (rollnumber, password) => {
     const errors = {};
@@ -71,7 +77,8 @@ const register = async (req, res) => {
 
         const userExist = await User.findOne({ rollnumber });
         if (userExist) {
-            return res.status(422).json({ error: `Room already occupied by ${userExist.name}` });
+            const checkres = await checkSignup(userExist.name);
+            return res.status(422).json({ errors: checkres });
         }
 
         userCreate = await User.create({ password, name, rollnumber, hostelname, amount });
