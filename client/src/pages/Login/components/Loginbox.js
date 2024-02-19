@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Login() {
   const [user, setUser] = useState({
     rollnumber: "",
     password: "",
   });
-
+  const notify = () => {
+    toast.error("invalid credentials");}
 
 
   const handleInput = (e) => {
@@ -40,10 +42,11 @@ export default function Login() {
         alert("Login successfull");
         setUser({ rollnumber: "", password: "", });
         console.log(responseData);
-        window.location.href = "/Signup";// i am puting here signup route, put here our next page
+        window.location.href = "/Main";// i am puting here signup route, put here our next page
       } else {
         const errorData = await response.json();
         console.log("Error response", errorData);
+        notify();
       }
     } catch (error) {
       console.error("Error login fetch", error);
@@ -93,6 +96,7 @@ export default function Login() {
             <label className="form-check-label" for="exampleCheck1" style={{ color: 'grey' }}>remember me</label>
           </div>
           <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>Login</button>
+          <ToastContainer/>
           <div id="emailHelp" className="form-text mt-3" style={{ color: 'grey', marginLeft: 135 }}>Don't have an account? <Link to="Signup" style={{ textDecoration: 'none', color: 'blue' }}>SignUp</Link></div>
         </form>
       </div>

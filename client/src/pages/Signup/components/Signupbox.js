@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup() {
   const [user, setUser] = useState({
@@ -9,7 +10,12 @@ export default function Signup() {
     hostelname: "",
     password: "",
   });
-
+  const notify = (data) => {
+    toast.warn(data);}
+  const notify2 = (data) => {
+      toast.warn(data);}
+  const notify3 = () => {
+        toast.success("Registration successful, Please login with same credentials");}
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -38,13 +44,18 @@ export default function Signup() {
       console.log("response data : ", response);
       if (response.ok) {
         const responseData = await response.json();
-        alert("Registration successful, Please login with same credentials");
+        alert("registeration successful! please login with same credentials")
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
+        // await notify3();
         window.location.href = "/";
       } else {
         const errorData = await response.json();
         console.log("Error response: ", errorData);
+        const data=errorData.errors.errors.password;
+        const data2=errorData.errors.errors.rollnumber;
+        notify(data);
+        notify2(data2);
       }
     } catch (error) {
       console.error("Error register fetch", error);
@@ -119,6 +130,7 @@ export default function Signup() {
             {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}
             Signup
           </button>
+          <ToastContainer/>
         </form>
       </div>
 
