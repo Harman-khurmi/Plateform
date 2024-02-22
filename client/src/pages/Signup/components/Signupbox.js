@@ -11,15 +11,23 @@ export default function Signup() {
     password: "",
   });
   const notify = (data) => {
-    toast.warn(data);}
+    toast.warn(data);
+  }
   const notify2 = (data) => {
-      toast.warn(data);}
+    toast.warn(data);
+  }
   const notify3 = () => {
-        toast.success("Registration successful, Please login with same credentials");}
+    toast.success("Registration successful, Please login with same credentials");
+  }
+
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
     let value = e.target.value;
+
+    if (name === 'name' && !/^[a-zA-Z]*$/.test(value)) {
+      return;
+    }
 
     setUser({
       ...user,
@@ -52,8 +60,8 @@ export default function Signup() {
       } else {
         const errorData = await response.json();
         console.log("Error response: ", errorData);
-        const data=errorData.errors.errors.password;
-        const data2=errorData.errors.errors.rollnumber;
+        const data = errorData.errors.errors.password;
+        const data2 = errorData.errors.errors.rollnumber;
         notify(data);
         notify2(data2);
       }
@@ -130,7 +138,7 @@ export default function Signup() {
             {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}
             Signup
           </button>
-          <ToastContainer/>
+          <ToastContainer />
         </form>
       </div>
 
