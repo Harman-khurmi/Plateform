@@ -3,6 +3,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const SECRET_KEY = "Hellothisiskey"
 
+const defaultClassIds = [
+    new mongoose.Types.ObjectId('65d488472f35b5b5192e3519'),
+    new mongoose.Types.ObjectId('65d488f28ac01c02a4502159'),
+    new mongoose.Types.ObjectId('65d4894866852d44f86a814c')
+];
+
 const userSchema = new mongoose.Schema({
     password: {
         type: String,
@@ -14,7 +20,8 @@ const userSchema = new mongoose.Schema({
     },
     rollnumber: {
         type: Number,
-        require: true
+        require: true,
+        unique: true
     },
     hostelname: {
         type: String,
@@ -22,8 +29,20 @@ const userSchema = new mongoose.Schema({
     },
     amount: {
         type: Number,
-        require: true
+        default: 25000
     },
+    role: {
+        type: String,
+        enum: ['instructor', 'student'],
+        default: 'student'
+    },
+    classes: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Class'
+        }],
+        default: defaultClassIds
+    }
 });
 
 
