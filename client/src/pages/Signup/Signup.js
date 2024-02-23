@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Navbar';
 import Signupbox from './components/Signupbox';
 export default function Signup() {
   return (

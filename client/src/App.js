@@ -8,6 +8,7 @@ import Signup from './pages/Signup/Signup';
 import QRPage from './pages/QR/Components/qrpage';
 import ScanQR from './pages/Scan/Components/scanpage';
 import Main from './pages/Main/main';
+import Home from './pages/Home/home';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -21,8 +22,10 @@ function App() {
       <Router>
 
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/Signup" element={<Signup />} />
           <Route path="/main" element={<Main />} />
           <Route path="/main/genQR" element={<QRPage />} />
           <Route path="/main/scanQR" element={<ScanQR />} />

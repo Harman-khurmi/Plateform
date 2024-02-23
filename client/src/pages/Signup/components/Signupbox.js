@@ -56,7 +56,7 @@ export default function Signup() {
         setUser({ name: "", rollnumber: "", hostelname: "", password: "" });
         console.log(responseData);
         // await notify3();
-        window.location.href = "/";
+        window.location.href = "/Login";
       } else {
         const errorData = await response.json();
         console.log("Error response: ", errorData);
