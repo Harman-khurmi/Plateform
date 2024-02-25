@@ -7,7 +7,7 @@ const QRPage = () => {
     // Function to handle button click and fetch QR code image from backend API
     const handleButtonClick = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/qr/generate?classId=102117', {
+            const response = await axios.get('https://digital-mess.vercel.app/api/qr/generate?classId=102117', {
                 responseType: 'blob', // Specify response type as blob
                 headers: {
                     'Content-Type': 'image/png'
