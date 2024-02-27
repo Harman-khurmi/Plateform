@@ -6,7 +6,7 @@ export default function Box() {
     <>
     
     <div class="main">
-      <div class="heading">
+      <div class="heading mt-5">
         <h1>Forget bland and boring meals.</h1>
         <p>
           We believe food should be more than just sustenance; it's an
