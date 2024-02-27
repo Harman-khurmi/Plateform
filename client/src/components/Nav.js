@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <>
       
-      <div className="NaviationCenter" style={{width: 1525, height: 64, position: 'relative', boxShadow: '0px 26px 58px rgba(0, 0, 0, 0.10)'}}>
+      <div className="NaviationCenter" style={{width: 1525, height: 64, boxShadow: '0px 26px 58px rgba(0, 0, 0, 0.10)',position:'fixed'}}>
   <div className="Background" style={{width: 1440, height: 64, left: 0, top: 0, position: 'absolute', background: 'white'}} />
   <div className="ButtonSecondary" style={{width: 140, height: 40, paddingTop: 8, paddingBottom: 7, paddingLeft: 17, paddingRight: 16, left: 1222, top: 12, position: 'absolute', background: '#1D5D9D', borderRadius: 10, justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
     <div className="Text" ><Link to="Signup" style={{width: 107, textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'Roboto', fontWeight: '400', lineHeight: 24.26, wordWrap: 'break-word', textDecoration:'none'}}>SignUp</Link></div>
