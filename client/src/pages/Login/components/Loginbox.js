@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './login.css';
 export default function Login() {
   const [user, setUser] = useState({
     rollnumber: "",
@@ -64,7 +65,7 @@ export default function Login() {
   }
   return (
     <>
-      <div className='container mt-1 text-bg-dark p-3' style={{ width: 500, height: 550, backgroundColor: 'grey', borderRadius: 10 }}>
+      <div className='container mt-1 shadow p-3' style={{ width: 500, height: 550, backgroundColor: 'white', borderRadius: 10 }}>
         <p className="bgimg mb-5" style={{ marginLeft: 185, fontSize: 35, fontFamily: 'Hubballi' }}>Login</p>
         <form onSubmit={handleSubmit}>
           <div className="mb-3" style={myStyle2}>
