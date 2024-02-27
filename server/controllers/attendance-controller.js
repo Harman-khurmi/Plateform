@@ -2,44 +2,32 @@ const express = require('express');
 const Attendance = require('../models/attendance-model');
 const User = require('../models/user-model');
 
-// Create a new attendance record
 const markAttendance = async (req, res) => {
     try {
-        // Extract the class ID from the QR code (assuming it's included in the request body)
-        const { classId, studentId } = req.body;
+        const { classId, rollnumber } = req.body;
 
-        // Check if the class ID and student ID are provided
-        if (!classId || !studentId) {
-            return res.status(400).json({ message: 'Class ID and Student ID are required' });
+        if (!classId || !rollnumber) {
+            return res.status(400).json({ message: 'Class ID and Roll Number are required' });
         }
 
-        // Find the student by ID
-        const student = await User.findById(studentId);
+        const student = await User.findOne({ rollnumber: rollnumber });
 
-        // Check if the student exists
         if (!student) {
             return res.status(404).json({ message: 'Student not found' });
         }
 
-        // Check if the student is enrolled in the specified class
         if (!student.classes.includes(classId)) {
             return res.status(400).json({ message: 'Student is not enrolled in the specified class' });
         }
 
-        // Check if the attendance record already exists for the student in the specified class
-        let attendance = await Attendance.findOne({ class: classId, student: studentId });
+        let attendance = await Attendance.findOne({ class: classId, student: rollnumber });
 
-        // If attendance record doesn't exist, create a new attendance record and mark status as "absent"
         if (!attendance) {
-            attendance = new Attendance({
-                class: classId,
-                student: studentId,
-                status: 'absent'
-            });
+            res.status(400).json({ msg: 'booking not there for this meal' });
         }
 
-        // Mark the student as present
         attendance.status = 'present';
+        attendance.date = Date.now();
         await attendance.save();
 
         res.json({ message: 'Attendance marked successfully' });

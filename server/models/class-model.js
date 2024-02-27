@@ -15,7 +15,6 @@ const classSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Other fields as needed
 });
 
 module.exports = mongoose.model('Class', classSchema);
