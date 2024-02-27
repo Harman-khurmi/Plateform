@@ -1,5 +1,6 @@
 import React from 'react';
 import './Box.css';
+import bg from './bg1.jpg';
 export default function Box() {
   return (
     <>
@@ -20,10 +21,7 @@ export default function Box() {
         </div>
       </div>
       <div class="circle">
-        <img
-          src="/images/pexels-francesco-paggiaro-1117862.jpg"
-          alt="Circle Image"
-        />
+        <img src={bg}/>
       </div>
     </div>
 
