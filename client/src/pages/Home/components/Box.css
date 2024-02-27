@@ -1,0 +1,376 @@
+/* General styles for all devices */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    
+    background-color:rgb(255, 255, 255);
+    
+    /* color:black; */
+    padding: 10px;
+    display: flex;
+    /* text-align: center; */
+    box-shadow: 0px 5px 50px rgb(192, 188, 188);
+}
+
+#nav {
+    display: flex;
+    /* justify-content:space-evenly; */
+    background-color:rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    font-weight:600;
+    width: 80%;
+   
+}
+.logo{
+width: 20%;
+
+/* padding-block:inherit; */
+/* padding-left: 2%; */
+/* justify-content: center; */
+}
+.logo img{
+    display: block;
+    margin-left:20%;
+    margin-top:5%;
+    margin-bottom: 5%;
+    position: relative;
+}
+#nav .options{
+    display: flex;
+    width:75%;
+    justify-content: center;
+}
+#nav .options a{
+    padding: 0% 2% 0% 2% ;
+}
+#nav .credential{
+    width: 25%;
+    justify-content: center;
+    display: flex;
+    justify-content:space-evenly;
+    padding:auto;
+}
+#nav a {
+    /* color: black; */
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+.options a{
+color: #333;
+}
+.options a:hover
+{
+    color: #1D5D9D;
+}
+#login-box
+{
+    width: 30%;
+    padding: 2% 5% 3% 5% ;
+    
+    text-decoration: solid;
+    border: 2px solid #1D5D9D;
+    border-radius: 8px;
+    background-color: transparent;
+    transition:color 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+}
+#login-box a
+{
+    color: #1D5D9D;   
+}
+#login-box:hover a
+{
+    color: white;
+    
+}
+#login-box:hover
+{
+    background-color: #1D5D9D;
+    color: white;
+}
+
+#sign-box
+{
+    width: 30%;
+    padding: 2% 5% 3% 5% ;
+    color: #fff;
+    text-decoration: solid;
+    background-color:#1D5D9D;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition:color 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+    
+}
+#sign-box a
+{
+    color: white;   
+}
+#sign-box:hover a
+{
+    color:#1D5D9D;
+    
+}
+#sign-box:hover
+{
+    background-color:transparent;
+    border: 2px solid #1D5D9D;
+    border-radius: 8px;
+    
+}
+
+
+
+
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading h1 {
+    color: #333;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.main
+{
+    display: flex;
+    margin:0%;
+    padding:0%;
+}
+.main .heading{
+    display: flex;
+flex-direction: column;
+/* justify-content:space-between; */
+width: 30%;
+padding:5% 2% 0 8%;
+
+}
+.main .heading h1
+{
+    /* flex-grow: 1; */
+}
+.main h1
+{
+    font-size:42px;
+    margin:0px 0px;
+    text-align: left;
+}
+.main p
+{
+    margin: 6% 0 2% 0;
+    text-align: left;
+}
+.buttons
+{
+    padding-left: 0%;
+    display: flex;
+}
+.buttons button
+{
+    margin:0 10% 0 0;
+    padding: 15px 35px;
+    justify-content: left;
+    border-radius: 12px;
+    background-color: #1D5D9D;
+    color: #fff;
+    font-size: 16px;
+    border: 0; 
+}
+.buttons button:hover
+{
+    box-shadow: 0px 2px 20px #1D5D9D;
+    
+}
+.main .circle
+{
+    width:75% ;
+    margin-top:8%;
+    margin-left: 40%;
+    position:fixed;
+    
+    overflow: hidden;
+    border-radius: 100%; /* Create a circular clipping mask */
+    
+}
+.main .circle img
+{
+   
+    width: 100%;/* Make the image fill the circular container */
+    height: auto; /* Maintain the aspect ratio of the image */
+    
+}
+
+/* Media query for devices with a maximum width of 600px */
+/* @media only screen and (max-width: 900px)
+{
+header{
+    align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+}
+header .logo
+{
+    width:auto;
+    align-items: center;
+}
+header .logo img
+{
+    width: 60%;
+}
+header #nav .options{
+    width: 60%;
+    display:flex;
+   justify-content:center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+}
+header #nav .options a{
+    
+    display:flex;
+   justify-content:center;
+    align-items: center;
+    padding: 2%;
+    margin: 1%;
+
+}
+header #nav .credential{
+    width: 40%;
+    display:flex;
+   justify-content:space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+}
+header #nav .credential div a{
+    margin: 0;
+
+}
+}
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    header a {
+        
+        text-align: center;
+        
+    }
+    header .logo{
+        margin: 2% 0;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    header .logo img
+    {
+        width:max-content;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+    header #nav
+    {
+    flex-direction: column;
+    }
+    header #nav .options{
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+       justify-content: space-between;
+        align-items: center;
+    }
+    header #nav .options a{
+        padding: 1% 0;
+    
+    }
+    header #nav .credential
+    {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+       justify-content: space-between;
+        align-items: center;
+        padding: 5% 0;
+    }
+    header #nav .credential div
+    {
+        margin: 1% 0;
+        padding: 2% 4%;
+    }
+    .main
+    {
+        width: 100%;
+        display: flex;
+        flex-direction:column;
+        margin: 0%;
+        text-align:center ;
+        align-items: center;
+
+
+        
+    }
+    .main .heading
+    {
+        width: 100%;
+        display: flex;
+        margin: 0%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+    .heading h1
+    {
+        font-size: 32px;
+        
+    }
+    .heading p
+    {
+        font-size: 16px;
+        width: 100;
+    }
+    .main .circle
+    {
+        position: relative;
+        margin-top:50px;
+        width: 100%;
+        
+    }
+    .main .circle img
+    {
+        border-radius: 100%;
+
+    }
+} */
