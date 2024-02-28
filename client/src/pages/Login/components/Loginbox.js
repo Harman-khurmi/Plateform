@@ -46,7 +46,7 @@ export default function Login() {
         localStorage.setItem('token', responseData.token);
         console.log(responseData);
         if (responseData.role === "instructor") {
-          window.location.href = "/main/getQR";
+          window.location.href = "/main/genQR";
         } else {
           window.location.href = "/main/book";
         }
