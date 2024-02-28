@@ -140,10 +140,10 @@ export default function Signup() {
               type="password"
               className="form-control"
               style={myStyle}
-              value={user.password}
+              value={user.password2}
               onChange={handleInput}
-              id="exampleInputPassword1"
-              name='password' />
+              id="exampleInputPassword2"
+              name='password2' />
           </div>
           <button type="submit" className="btn btn-outline-success mt-2" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
             {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}
