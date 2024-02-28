@@ -109,6 +109,7 @@ const login = async (req, res) => {
                 msg: "Login successfully",
                 token: await userExist.generateToken(),
                 userId: userExist._id.toString(),
+                role: userExist.role
             });
         } else {
             res.status(400).json({ error: "Invalid Credentials" });

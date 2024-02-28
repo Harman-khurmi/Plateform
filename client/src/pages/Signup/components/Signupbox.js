@@ -9,6 +9,7 @@ export default function Signup() {
     rollnumber: "",
     hostelname: "",
     password: "",
+    cnfpass: "",
   });
   const notify = (data) => {
     toast.warn(data);
@@ -39,6 +40,11 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+
+    if (user.password !== user.cnfpass) {
+      notify("Passwords do not match");
+      return;
+    }
 
     try {
       const response = await fetch("https://digital-mess.vercel.app/api/auth/register",
@@ -81,7 +87,7 @@ export default function Signup() {
   }
   return (
     <>
-      <div className='container mt-5 p-3 shadow' style={{ width: 500, height: 700, borderRadius: 10, backgroundColor:"white" }}>
+      <div className='container mt-5 p-3 shadow' style={{ width: 500, height: 700, borderRadius: 10, backgroundColor: "white" }}>
         <p className="bgimg mb-5" style={{ marginLeft: 170, fontSize: 35, fontFamily: 'Hubballi' }}>Signup</p>
         {/* <img src="D:\Car-parking project\car-parking\src\Components\parking.jpg" alt="" class="bg-image"/> */}
         <form onSubmit={handleSubmit}>
@@ -140,10 +146,10 @@ export default function Signup() {
               type="password"
               className="form-control"
               style={myStyle}
-              value={user.password}
+              value={user.cnfpass}
               onChange={handleInput}
               id="exampleInputPassword1"
-              name='password' />
+              name='cnfpass' />
           </div>
           <button type="submit" className="btn btn-outline-success mt-2" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
             {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}

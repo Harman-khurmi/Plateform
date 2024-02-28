@@ -69,6 +69,7 @@ userSchema.methods.generateToken = async function () {
             {
                 userId: this._id.toString(),
                 rollNo: this.rollNo,
+                role: this.role,
             },
             SECRET_KEY
         )
