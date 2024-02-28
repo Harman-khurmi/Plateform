@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './qr.css';
 const QRPage = () => {
     const [qrImage, setQRImage] = useState('');
     const [classId, setClassId] = useState('');
@@ -36,12 +36,20 @@ const QRPage = () => {
     };
 
     return (
-        <div>
-            <h1>QR Code</h1>
-            <button onClick={() => handleButtonClick('breakfast')}>Fetch QR Code for Breakfast</button>
-            <button onClick={() => handleButtonClick('lunch')}>Fetch QR Code for Lunch</button>
-            <button onClick={() => handleButtonClick('dinner')}>Fetch QR Code for Dinner</button>
+        <div className='container mt-5 mb-5'>
+            <div className="text-center">
+            <h1 className='mt-5 mb-5'>QR Code</h1>
+            </div>
+            <div className="center-box">
+       
+            <button className="btn1" onClick={() => handleButtonClick('breakfast')}>Fetch QR Code for Breakfast</button>
+            <button className="btn1" onClick={() => handleButtonClick('lunch')}>Fetch QR Code for Lunch</button>
+            <button className="btn1" onClick={() => handleButtonClick('dinner')}>Fetch QR Code for Dinner</button>
+            </div>
+            
+            <div className='mt-3 text-center'>
             {qrImage && <img src={qrImage} alt="QR code" />}
+            </div>
         </div>
     );
 }

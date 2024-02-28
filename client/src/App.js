@@ -6,7 +6,7 @@ import Login from './pages/Login/Loginme';
 import Forgot from './pages/Forgot/Forgot';
 import Signup from './pages/Signup/Signup';
 import Book from './pages/Booking/Booking';
-import QRPage from './pages/QR/Components/qrpage';
+import QRPage from './pages/QR/qrpage';
 import ScanQR from './pages/Scan/Components/scanpage';
 import Main from './pages/Main/main';
 import Home from './pages/Home/home';
