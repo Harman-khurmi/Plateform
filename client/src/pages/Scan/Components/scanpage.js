@@ -1,52 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import authUtils from '../../../utils/jwtRollNumber';
 
-const QRPage = () => {
-    const [qrImage, setQRImage] = useState('');
+const AttendancePage = () => {
+    const { classId } = useParams();
 
-    const handleButtonClick = async () => {
+    const handleSend = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/qr/generate?classId=102117', {
-                responseType: 'blob',
+            const isAuthenticated = authUtils.checkAuthentication();
+
+            let rollnumber = '';
+            if (isAuthenticated) {
+                rollnumber = await authUtils.fetchRollNumber();
+                console.log(rollnumber);
+                console.log(classId);
+            } else {
+                authUtils.redirectToLogin();
+                return;
+            }
+
+            const response = await fetch('https://digital-mess.vercel.app/api/attendance/mark-attendance', {
+                method: 'POST',
                 headers: {
-                    'Content-Type': 'image/png'
-                }
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ classId, rollnumber }),
             });
-            const reader = new FileReader();
-            reader.onload = () => {
-                setQRImage(reader.result);
-            };
-            reader.readAsDataURL(response.data);
+
+            if (!response.ok) {
+                throw new Error('Failed to mark attendance');
+            }
+
+            const data = await response.json();
+            console.log(data.message);
         } catch (error) {
-            console.error('Error fetching QR code:', error);
+            console.error('Error marking attendance:', error.message);
         }
     };
 
-    useEffect(() => {
-        // Extract class ID and student ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const classId = urlParams.get('classId');
-        const studentId = urlParams.get('studentId');
-
-        // Send class ID and student ID to backend
-        if (classId && studentId) {
-            axios.get(`http://localhost:3001/api/attendance?classId=${classId}&studentId=${studentId}`)
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.error('Error marking attendance:', error);
-                });
-        }
-    }, []); // Run only once on component mount
-
     return (
         <div>
-            <h1>QR Code</h1>
-            <button onClick={handleButtonClick}>Fetch QR Code</button>
-            {qrImage && <img src={qrImage} alt="QR code" />}
+            <h1>Attendance Mark Page</h1>
+            <button onClick={handleSend}>Send</button>
         </div>
     );
-}
+};
 
-export default QRPage;
+export default AttendancePage;

@@ -4,9 +4,13 @@ const authRouter = require('./router/auth-router');
 const qrRouter = require('./router/qr-router');
 const classRouter = require('./router/class-router');
 const attendanceRouter = require('./router/attendance-router');
+const bookingRouter = require('./router/book-router');
 const port = 3001;
 const mongoose = require('mongoose');
 const cors = require('cors')
+const SECRET_KEY = "Hellothisiskey"
+const User = require('./models/user-model');
+const jwt = require('jsonwebtoken');
 
 // const corsOptions = {
 //     origin: "http://localhost:5173",
@@ -23,6 +27,47 @@ app.use('/api/auth/', authRouter)
 app.use('/api/qr/', qrRouter)
 app.use('/api/classes/', classRouter)
 app.use('/api/attendance/', attendanceRouter)
+app.use('/api/main/', bookingRouter)
+
+// Middleware to authenticate requests
+const authenticateToken = (req, res, next) => {
+    // Get the token from the Authorization header
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token == null) {
+        return res.sendStatus(401); // Unauthorized if token is missing
+    }
+
+    // Verify the token (implementation depends on your chosen library)
+    jwt.verify(token, SECRET_KEY, (err, user) => {
+        if (err) {
+            return res.sendStatus(403); // Forbidden if token is invalid
+        }
+        req.user = user;
+        next(); // Proceed to the next middleware or route handler
+    });
+};
+
+// API endpoint to get the roll number
+app.get('/api/user/rollnumber', authenticateToken, async (req, res) => {
+    try {
+        // Access the authenticated user data from req.user
+        const userId = req.user.userId;
+
+        // Assuming you have a User model with a rollNumber field
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json({ rollNumber: user.rollnumber });
+    } catch (error) {
+        console.error('Error fetching roll number:', error.message);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 
 if (mongoose.connect('mongodb+srv://robert:robert1002@cluster0.eetagrv.mongodb.net/digital_mess?retryWrites=true&w=majority'), {
     useNewUrlParser: true,

@@ -4,7 +4,7 @@ const qr = require('qr-image');
 const generate = async (req, res) => {
     try {
         const classId = req.query.classId;
-        const redirectUrl = `https://yourwebsite.com/attendance?classId=${classId}`;
+        const redirectUrl = `https://digital-mess-client.vercel.app/main/scanQR/${classId}`;
 
         const qrCode = qr.image(redirectUrl, { type: 'png' });
 

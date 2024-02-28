@@ -9,7 +9,8 @@ export default function Login() {
     password: "",
   });
   const notify = () => {
-    toast.error("invalid credentials");}
+    toast.error("invalid credentials");
+  }
 
 
   const handleInput = (e) => {
@@ -29,7 +30,7 @@ export default function Login() {
     console.log(user);
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/login",
+      const response = await fetch("https://digital-mess.vercel.app/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -42,6 +43,7 @@ export default function Login() {
         const responseData = await response.json();
         alert("Login successfull");
         setUser({ rollnumber: "", password: "", });
+        localStorage.setItem('token', responseData.token);
         console.log(responseData);
         window.location.href = "/Main";// i am puting here signup route, put here our next page
       } else {
@@ -97,7 +99,7 @@ export default function Login() {
             <label className="form-check-label" for="exampleCheck1" style={{ color: 'grey' }}>remember me</label>
           </div>
           <button type="submit" className="btn btn-outline-success mt-5" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>Login</button>
-          <ToastContainer/>
+          <ToastContainer />
           <div id="emailHelp" className="form-text mt-3" style={{ color: 'grey', marginLeft: 135 }}>Don't have an account? <Link to="Signup" style={{ textDecoration: 'none', color: 'blue' }}>SignUp</Link></div>
         </form>
       </div>
