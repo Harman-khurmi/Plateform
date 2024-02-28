@@ -146,10 +146,9 @@ export default function Signup() {
               type="password"
               className="form-control"
               style={myStyle}
-
               value={user.cnfpass}
               onChange={handleInput}
-              id="exampleInputPassword1"
+              id="exampleInputcnfPassword1"
               name='cnfpass' />
 
           </div>
