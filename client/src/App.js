@@ -26,8 +26,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login/Signup" element={<Signup />} />
-          <Route path="/main" element={<Main />} />
+          {/* <Route path="/login/Signup" element={<Signup />} /> */}
+          {/* <Route path="/main" element={<Main />} /> */}
           <Route path="/main/book" element={<Book />} />
           <Route path="/main/genQR" element={<QRPage />} />
           <Route path="/main/scanQR/:classId" element={<ScanQR />} />

@@ -45,7 +45,11 @@ export default function Login() {
         setUser({ rollnumber: "", password: "", });
         localStorage.setItem('token', responseData.token);
         console.log(responseData);
-        window.location.href = "/Main";// i am puting here signup route, put here our next page
+        if (responseData.role === "instructor") {
+          window.location.href = "/main/getQR";
+        } else {
+          window.location.href = "/main/book";
+        }
       } else {
         const errorData = await response.json();
         console.log("Error response", errorData);
