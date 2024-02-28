@@ -146,10 +146,12 @@ export default function Signup() {
               type="password"
               className="form-control"
               style={myStyle}
+
               value={user.cnfpass}
               onChange={handleInput}
               id="exampleInputPassword1"
               name='cnfpass' />
+
           </div>
           <button type="submit" className="btn btn-outline-success mt-2" style={{ marginLeft: 65, fontFamily: 'Inconsolata', borderRadius: 50, width: 350 }}>
             {/* <Link to="/" style={{textDecoration:'none', color:'white'}}>Signup</Link> */}
