@@ -32,6 +32,7 @@ const AttendancePage = () => {
             }
 
             const data = await response.json();
+            alert(data.message);
             console.log(data.message);
         } catch (error) {
             console.error('Error marking attendance:', error.message);
@@ -41,7 +42,7 @@ const AttendancePage = () => {
     return (
         <div>
             <h1>Attendance Mark Page</h1>
-            <button onClick={handleSend}>Send</button>
+            <button onClick={handleSend}>Mark Your Present</button>
         </div>
     );
 };
