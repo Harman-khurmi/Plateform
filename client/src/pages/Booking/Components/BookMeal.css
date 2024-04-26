@@ -1,0 +1,92 @@
+/* Calendar.css */
+.calendar {
+    flex-grow: 1;
+    /* Allow the calendar to grow to fill available space */
+    margin-right: 20px;
+    /* Add margin between calendar and right box */
+}
+
+.calendar-container {
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    position: relative;
+    /* display: flex; */
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.calendar-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.calendar-day.empty {
+    background-color: transparent;
+    border: none;
+}
+
+.calendar-day.today {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.today {
+    background-color: blue;
+    color: white;
+}
+
+.calendar-container {
+    position: relative;
+    /* Add position relative to the calendar container */
+}
+
+.right-box {
+    width: 300px;
+    /* Adjust the width of the right box as needed */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.right-box-header {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.right-box-content {
+    padding: 16px;
+    font-size: 14px;
+}

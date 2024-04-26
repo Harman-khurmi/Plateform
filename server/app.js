@@ -12,13 +12,6 @@ const SECRET_KEY = "Hellothisiskey"
 const User = require('./models/user-model');
 const jwt = require('jsonwebtoken');
 
-// const corsOptions = {
-//     origin: "http://localhost:5173",
-//     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
-//     credentials: true,
-// };
-
-// app.use(cors(corsOptions));
 app.use(cors());
 
 app.use(express.json());
@@ -31,31 +24,26 @@ app.use('/api/main/', bookingRouter)
 
 // Middleware to authenticate requests
 const authenticateToken = (req, res, next) => {
-    // Get the token from the Authorization header
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
     if (token == null) {
-        return res.sendStatus(401); // Unauthorized if token is missing
+        return res.sendStatus(401);
     }
-
-    // Verify the token (implementation depends on your chosen library)
     jwt.verify(token, SECRET_KEY, (err, user) => {
         if (err) {
-            return res.sendStatus(403); // Forbidden if token is invalid
+            return res.sendStatus(403);
         }
         req.user = user;
-        next(); // Proceed to the next middleware or route handler
+        next();
     });
 };
 
 // API endpoint to get the roll number
 app.get('/api/user/rollnumber', authenticateToken, async (req, res) => {
     try {
-        // Access the authenticated user data from req.user
         const userId = req.user.userId;
 
-        // Assuming you have a User model with a rollNumber field
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
