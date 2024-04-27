@@ -4,10 +4,10 @@ const User = require('../models/user-model');
 
 const markAttendance = async (req, res) => {
     try {
-        const { classId, rollnumber } = req.body;
+        const { classId, rollnumber, bookingDate } = req.body;
 
-        if (!classId || !rollnumber) {
-            return res.status(400).json({ message: 'Class ID and Roll Number are required' });
+        if (!classId || !rollnumber || bookingDate) {
+            return res.status(400).json({ message: 'Class ID, Roll Number and Booking Date are required' });
         }
 
         const student = await User.findOne({ rollnumber: rollnumber });
@@ -20,14 +20,14 @@ const markAttendance = async (req, res) => {
             return res.status(400).json({ message: 'Student is not enrolled in the specified class' });
         }
 
-        let attendance = await Attendance.findOne({ class: classId, student: rollnumber });
+        let attendance = await Attendance.findOne({ class: classId, student: rollnumber, bookingDate });
 
         if (!attendance) {
             res.status(400).json({ msg: 'booking not there for this meal' });
         }
 
         attendance.status = 'present';
-        attendance.date = Date.now();
+        // attendance.date = Date.now();
         await attendance.save();
 
         res.json({ message: 'Attendance marked successfully' });

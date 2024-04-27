@@ -11,9 +11,9 @@ const attendanceSchema = new mongoose.Schema({
         ref: 'Class',
         required: true
     },//meals name
-    date: {
+    bookingDate: {
         type: Date,
-        default: Date.now
+        // default: Date.now
     },
     status: {
         type: String,

@@ -42,7 +42,7 @@ const BookingPage = () => {
 
     for (let i = 1; i <= daysInMonth; i++) {
         const isSelected = selectedDate === i;
-        
+
         const isCurrent = currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear() && i === currentDate.getDate();
         const isFuture = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && i > currentDate.getDate()) ||
             (currentYear === currentDate.getFullYear() && currentMonth > currentDate.getMonth()) ||
@@ -82,11 +82,11 @@ const BookingPage = () => {
         const clickedDate = new Date(currentYear, currentMonth, day);
         console.log(clickedDate);
         var today = new Date();
-        var firstDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1, 1);
+        var firstDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
         const isFuture = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && day > currentDate.getDate()) ||
             (currentYear === currentDate.getFullYear() && currentMonth > currentDate.getMonth()) ||
             (currentYear > currentDate.getFullYear());
-        const isFuture2 = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && day === currentDate.getDate() + 1)||(currentYear === currentDate.getFullYear() && currentMonth > currentDate.getMonth() && day === firstDayOfMonth.getDate());
+        const isFuture2 = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && day === currentDate.getDate() + 1) || (currentYear === currentDate.getFullYear() && currentMonth > currentDate.getMonth() && day === firstDayOfMonth.getDate());
         const isCurrent = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && day === currentDate.getDate());
         if (isFuture2) {
             setSelectedDate(clickedDate);

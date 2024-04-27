@@ -4,6 +4,7 @@ import authUtils from '../../../utils/jwtRollNumber';
 
 const AttendancePage = () => {
     const { classId } = useParams();
+    const [currentDate, setCurrentDate] = useState(new Date());
 
     const handleSend = async () => {
         try {
@@ -19,12 +20,13 @@ const AttendancePage = () => {
                 return;
             }
 
-            const response = await fetch('https://digital-mess.vercel.app/api/attendance/mark-attendance', {
+            const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+            const response = await fetch('http://localhost:3001/api/attendance/mark-attendance', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ classId, rollnumber }),
+                body: JSON.stringify({ classId, rollnumber, bookingDate: formattedDate }),
             });
 
             if (!response.ok) {

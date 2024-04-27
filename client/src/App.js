@@ -6,6 +6,7 @@ import Login from './pages/Login/Loginme';
 import Forgot from './pages/Forgot/Forgot';
 import Signup from './pages/Signup/Signup';
 import Book from './pages/Booking/Booking';
+import Billing from './pages/Billing/billings';
 import QRPage from './pages/QR/qrpage';
 import ScanQR from './pages/Scan/Components/scanpage';
 import Main from './pages/Main/main';
@@ -30,6 +31,7 @@ function App() {
           {/* <Route path="/login/Signup" element={<Signup />} /> */}
           {/* <Route path="/main" element={<Main />} /> */}
           <Route path="/main/book" element={<Book />} />
+          <Route path="/main/billing" element={<Billing />} />
           <Route path="/main/genQR" element={<QRPage />} />
           <Route path="/main/scanQR/:classId" element={<ScanQR />} />
           <Route path="/Forgotpass" element={<Forgot />} />
