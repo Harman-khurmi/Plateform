@@ -54,7 +54,7 @@ const BillingPage = () => {
     var day=new Date();
     return (
         <>
-        <div className="container shadow">
+        <div className="container1 container shadow">
       
         <div className="vertical-box">
             <div className="box shadow">
