@@ -28,7 +28,7 @@ const booking = async (req, res) => {
                 const attendance = new Attendance({
                     class: classId,
                     student: student.rollnumber,
-                    bookingDate: new Date(bookingDate), // Convert bookingDate to a Date object
+                    bookingDate: new Date(bookingDate),
                     status: 'absent'
                 });
                 await attendance.save();
@@ -47,14 +47,13 @@ const booking = async (req, res) => {
 
 const getBooking = async (req, res) => {
     try {
-        const rollnumber = parseInt(req.params.rollnumber); // Parse rollnumber as integer
+        const rollnumber = parseInt(req.params.rollnumber);
 
-        // Get upcoming bookings including today
         const today = new Date();
         const bookings = await Attendance.find({
             student: rollnumber,
             bookingDate: { $gte: today }
-        }).sort({ date: 1 }).populate('class');
+        }).sort({ bookingDate: 1 }).populate('class');
 
         res.status(200).json({ bookings });
     } catch (error) {
@@ -63,4 +62,56 @@ const getBooking = async (req, res) => {
     }
 };
 
-module.exports = { booking, getBooking };
+const history = async (req, res) => {
+    try {
+        const rollnumber = parseInt(req.params.rollnumber);
+        let bookings = [];
+        const status = req.query.status;
+
+        if (!status || status === 'All') {
+            bookings = await Attendance.find({
+                student: rollnumber,
+                bookingDate: { $lte: new Date() }
+            }).sort({ bookingDate: 1 }).populate('class');
+        } else if (status === 'Present') {
+            bookings = await Attendance.find({
+                student: rollnumber,
+                bookingDate: { $lte: new Date() },
+                status: 'present'
+            }).sort({ bookingDate: 1 }).populate('class');
+        }
+        else if (status === 'Absent') {
+            bookings = await Attendance.find({
+                student: rollnumber,
+                bookingDate: { $lte: new Date() },
+                status: 'absent'
+            }).sort({ bookingDate: 1 }).populate('class');
+        }
+
+        res.json({ bookings });
+    } catch (error) {
+        console.error('Error fetching booking history:', error.message);
+        res.status(500).json({ message: 'Failed to fetch booking history' });
+    }
+};
+
+const deleteBooking = async (req, res) => {
+    try {
+        const { bookingId } = req.params;
+
+        // Assume you have a Booking model
+        const deletedBooking = await Attendance.findByIdAndDelete(bookingId);
+
+        if (!deletedBooking) {
+            return res.status(404).json({ message: 'Booking not found' });
+        }
+
+        res.json({ message: 'Booking deleted successfully' });
+
+    } catch (error) {
+        console.error('Error Delete Booking:', error.message);
+        res.status(500).json({ message: 'Failed to delete the booking' });
+    }
+}
+
+module.exports = { booking, getBooking, history, deleteBooking };
