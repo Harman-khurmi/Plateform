@@ -80,6 +80,7 @@ const BookingPage = () => {
 
     const handleDateClick = (day) => {
         const clickedDate = new Date(currentYear, currentMonth, day);
+        console.log(clickedDate);
         var today = new Date();
         var firstDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1, 1);
         const isFuture = (currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() && day > currentDate.getDate()) ||
