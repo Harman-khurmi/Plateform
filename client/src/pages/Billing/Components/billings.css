@@ -73,16 +73,18 @@
   }
   .flex-container{
         width: 650px; 
-        height: 80%; 
+        height: 100%; 
         align-items: center; 
         display: flex; 
         align-self: center; 
         justify-content: center;
-       
+       /* margin-top: 10px; */
+       padding: 10px;
+       border: rgb(196, 193, 193) 1px solid;
   }
   .flex-item{
     width: 25%; 
-    height: 90%; 
+    height: 100%; 
     text-align: center; 
     margin: 5px 10px;
     

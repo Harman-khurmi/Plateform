@@ -61,44 +61,8 @@ const BillingPage = () => {
             
                 <div className="vertical-box">
                 <div className="heading1">Today {day.toLocaleDateString()}</div>
-                <div className="flex-container">
-                    <div className='flex-item'>SNo.</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Date</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Meal Name</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Price per Meal</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Amount per Meal</div>
-                </div>
-                <div className="flex-container">
-                    <div className='flex-item'>SNo.</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Date</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Meal Name</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Price per Meal</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Amount per Meal</div>
-                </div>
-               
-                <div className="flex-container">
-                    <div className='flex-item'>SNo.</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Date</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Meal Name</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Price per Meal</div>
-                        {/* <span className="space4"></span> */}
-                    <div className='flex-item'>Amount per Meal</div>
-                </div>
-                </div>
-                   
-                <div className="vertical-box">
-                    {bookings.map((booking, index) => (
+                
+                {bookings.map((booking, index) => (
                         <div key={index} className='flex-container'>
                             <div className='flex-item'>{index + 1}</div>
                             <div className='flex-item'>{new Date(booking.bookingDate).toLocaleDateString('en-GB')}</div>
@@ -107,6 +71,12 @@ const BillingPage = () => {
                             <div className='flex-item'>{booking.status === 'present' ? `+75` : `+10 fine`}</div>
                         </div>
                     ))}
+               
+                
+                </div>
+                   
+                <div className="vertical-box">
+                    
                 </div>
            
             </div>

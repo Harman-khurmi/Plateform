@@ -11,7 +11,7 @@ import QRPage from './pages/QR/qrpage';
 import ScanQR from './pages/Scan/Components/scanpage';
 import Main from './pages/Main/main';
 import Home from './pages/Home/home';
-import Finance from './pages/Finance/finance';
+import Booking from './pages/Booking/Booking';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
           <Route path="/main/scanQR/:classId" element={<ScanQR />} />
           <Route path="/Forgotpass" element={<Forgot />} />
           <Route path="/Forgotpass/Signup" element={<Signup />} />
-          <Route path="/Finance" element={<Finance />} />
+          <Route path="/main/booking" element={<Booking />} />
         </Routes>
 
       </Router>
