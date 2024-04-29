@@ -46,30 +46,37 @@ const BookingHistory = () => {
     };
 
     return (
-        <div>
-            <h1>Booking History</h1>
-            <div>
-                <label>Filter:</label>
+        <>
+        <div className="vertical-box mt-5">
+            <div className="box shadow">
+            
+                <div className="vertical-box">
+                <div className="heading1"><label>Filter:</label>
+                <span className="space"></span>
                 <select value={filter} onChange={handleFilterChange}>
                     <option value="All">All</option>
                     <option value="Present">Present</option>
                     <option value="Absent">Absent</option>
-                </select>
-            </div>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <ul>
-                    {bookings.map((booking, index) => (
-                        <li key={index}>
-                            <p>Date: {new Date(booking.bookingDate).toLocaleDateString('en-GB')}</p>
-                            <p>Meal: {booking.class.className}</p>
-                            <p>Status: {booking.status}</p>
-                        </li>
+                </select></div>
+                
+                {bookings.map((booking, index) => (
+                        <div key={index} className='flex-container'>
+                            <div className='flex-item'>{new Date(booking.bookingDate).toLocaleDateString('en-GB')}</div>
+                            <div className='flex-item'>{booking.class.className}</div>
+                            <div className='flex-item'>{booking.status}</div>
+                        </div>
                     ))}
-                </ul>
-            )}
+               
+                
+                </div>
+                   
+                
+           
+            </div>
+            
         </div>
+        
+        </>
     );
 };
 

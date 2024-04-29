@@ -30,7 +30,7 @@
   
   .box {
     /* flex: 1; */
-    height: 260px; /* adjust height as needed */
+    height: auto; /* adjust height as needed */
      /* adjust width as needed */
     /* background-color: grey; */
     width:650px;

@@ -29,6 +29,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="/login/Signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/login/Signup" element={<Signup />} /> */}
           {/* <Route path="/main" element={<Main />} /> */}
@@ -41,6 +42,7 @@ function App() {
           <Route path="/main/booking" element={<Booking />} />
           <Route path="/main/upcoming" element={<Upcoming />} />
           <Route path="/main/history" element={<History />} />
+          
         </Routes>
 
       </Router>

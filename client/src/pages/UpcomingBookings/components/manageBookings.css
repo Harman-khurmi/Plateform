@@ -1,0 +1,13 @@
+.btn3{
+    background-color:#1D5D9D;
+    color:white;
+    border-radius: 10px;
+    padding:5px;
+    width:100px;
+    border-color: #1D5D9D;
+}
+.btn3:hover{
+    background-color: white;
+    color: #1D5D9D;
+    border-color: #1D5D9D;
+}

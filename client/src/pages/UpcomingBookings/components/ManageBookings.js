@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import authUtils from '../../../utils/jwtRollNumber';
-
+import './manageBookings.css'
 const Bookings = () => {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -49,24 +49,35 @@ const Bookings = () => {
             console.error('Error deleting booking:', error.message);
         }
     };
-
+   
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
     return (
-        <div className="bookings-container">
-            <h1>My Upcoming Bookings</h1>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <ul>
-                    {bookings.map((booking, index) => (
-                        <li key={index}>
-                            <p>Date: {new Date(booking.bookingDate).toLocaleDateString('en-GB')}</p>
-                            <p>Meal Name: {booking.class.className}</p>
-                            <button onClick={() => handleDeleteBooking(booking._id)}>Delete</button>
-                        </li>
+        <>
+        <div className="vertical-box mt-5">
+            <div className="box shadow">
+            
+                <div className="vertical-box">
+                <div className="heading1">Today {tomorrow.toLocaleDateString()}</div>
+                
+                {bookings.map((booking, index) => (
+                        <div key={index} className='flex-container'>
+                            <div className='flex-item'>{new Date(booking.bookingDate).toLocaleDateString('en-GB')}</div>
+                            <div className='flex-item'>{booking.class.className}</div>
+                            <div className='flex-item'><button className="btn3" onClick={() => handleDeleteBooking(booking._id)}>Delete</button></div>
+                        </div>
                     ))}
-                </ul>
-            )}
+               
+                
+                </div>
+                   
+                
+           
+            </div>
+            
         </div>
+        
+        </>
     );
 };
 
