@@ -79,7 +79,7 @@ header {
 
 #login-box {
   width: 30%;
-  padding: 2% 5% 3% 5%;
+  padding: 2% 5% 3% 0%;
 
   text-decoration: solid;
   border: 2px solid #1D5D9D;
@@ -105,7 +105,7 @@ header {
 
 #sign-box {
   width: 30%;
-  padding: 2% 5% 3% 5%;
+  padding: 2% 5% 3% 0%;
   color: #fff;
   text-decoration: solid;
   background-color: #1D5D9D;

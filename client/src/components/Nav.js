@@ -33,10 +33,10 @@ export default function Nav() {
         </div>
         <div id="nav">
           <div class="options">
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="/main/book">Calendar</a>
+            <a href="/main/upcoming">Upcoming Bookings</a>
+            <a href="/main/history">History</a>
+            <a href="/main/billing">Billing</a>
           </div>
           <div class="credential">
             <div id="login-box">
