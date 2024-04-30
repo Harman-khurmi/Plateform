@@ -11,6 +11,9 @@ import QRPage from './pages/QR/qrpage';
 import ScanQR from './pages/Scan/Components/scanpage';
 import Main from './pages/Main/main';
 import Home from './pages/Home/home';
+import Booking from './pages/Booking/Booking';
+import Upcoming from './pages/UpcomingBookings/UpcopmingBookings';
+import History from './pages/History/History';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="/login/Signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/login/Signup" element={<Signup />} /> */}
           {/* <Route path="/main" element={<Main />} /> */}
@@ -35,7 +39,10 @@ function App() {
           <Route path="/main/scanQR/:classId" element={<ScanQR />} />
           <Route path="/Forgotpass" element={<Forgot />} />
           <Route path="/Forgotpass/Signup" element={<Signup />} />
-
+          <Route path="/main/booking" element={<Booking />} />
+          <Route path="/main/upcoming" element={<Upcoming />} />
+          <Route path="/main/history" element={<History />} />
+          
         </Routes>
 
       </Router>

@@ -1,0 +1,98 @@
+.container1 {
+    display: flex;
+    width: 100%;
+    /* border: black solid 1px; */
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    align-items: center;
+  }
+  
+  .blue-box {
+    /* flex: 1; */
+    height: 530px; /* adjust height as needed */
+    width: 500px;
+    background-color: rgb(29, 93, 157);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+  }
+  
+  .vertical-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box {
+    /* flex: 1; */
+    height: auto; /* adjust height as needed */
+     /* adjust width as needed */
+    /* background-color: grey; */
+    width:650px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: rgb(29, 93, 157);
+  }
+  .space {
+    margin-left: 100px; /* Adjust margin as needed */
+    margin-right: 100px; /* Adjust margin as needed */
+  }
+  .line {
+    height: 1px; /* Adjust height as needed to control line thickness */
+    background-color: white;
+  }
+  .line1 {
+    height: 1px; /* Adjust height as needed to control line thickness */
+    background-color: rgb(29, 28, 28);
+  }
+  .space2 {
+    margin-left: 130px; /* Adjust margin as needed */
+    margin-right: 100px; /* Adjust margin as needed */
+  }
+  .space3 {
+    margin-left: 125px; /* Adjust margin as needed */
+    margin-right: 100px; /* Adjust margin as needed */
+  }
+  .space4 {
+    margin-left: 50px; /* Adjust margin as needed */
+    margin-right: 50px; /* Adjust margin as needed */
+  }
+  .total
+  {
+    
+    background-color: rgb(40, 175, 176);
+    padding:5px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .flex-container{
+        width: 650px; 
+        height: 100%; 
+        align-items: center; 
+        display: flex; 
+        align-self: center; 
+        justify-content: center;
+       /* margin-top: 10px; */
+       padding: 10px;
+       border: rgb(196, 193, 193) 1px solid;
+  }
+  .flex-item{
+    width: 25%; 
+    height: 100%; 
+    text-align: center; 
+    margin: 5px 10px;
+    
+  }
+  .heading1{
+    background-color: rgb(167, 229, 229);
+    width: 650px;
+    padding:15px;
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+  }

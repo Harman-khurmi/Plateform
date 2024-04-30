@@ -76,6 +76,7 @@
     background-color: #ffffff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 10px 10px;
 }
 
 .right-box-header {
@@ -89,4 +90,10 @@
 .right-box-content {
     padding: 16px;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+
+}
+.flex-space{
+    margin:2px;
 }

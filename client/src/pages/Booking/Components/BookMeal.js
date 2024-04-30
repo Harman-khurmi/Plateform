@@ -126,13 +126,13 @@ const Calendar = () => {
                 </div>
             </div>
             {showRightBox && (
-                <div className="right-box">
+                <div className="right-box" style={{marginTop:15}}>
                     <div className="right-box-header">
-                        <h2>{selectedDate ? selectedDate.toDateString() : ''}</h2>
-                        <button onClick={() => setShowRightBox(false)}>Close</button>
+                        <h5>{selectedDate ? selectedDate.toDateString() : ''}<button classNmae="ms-4" onClick={() => setShowRightBox(false)} style={{padding:1, borderRadius:10, marginLeft:50}}>  &#10004;</button></h5>
+                        
                     </div>
                     <div className="right-box-content">
-                        <label>
+                        <label className='flex-space'>
                             <input
                                 type="checkbox"
                                 name="breakfast"
@@ -141,7 +141,7 @@ const Calendar = () => {
                             />
                             Breakfast
                         </label>
-                        <label>
+                        <label className='flex-space'>
                             <input
                                 type="checkbox"
                                 name="lunch"
@@ -150,7 +150,7 @@ const Calendar = () => {
                             />
                             Lunch
                         </label>
-                        <label>
+                        <label className='flex-space'>
                             <input
                                 type="checkbox"
                                 name="dinner"
@@ -159,7 +159,7 @@ const Calendar = () => {
                             />
                             Dinner
                         </label>
-                        <button onClick={handleSubmit}>Submit</button>
+                        <button onClick={handleSubmit} style={{marginTop:10, padding:1, borderRadius:10}}>Submit</button>
                     </div>
                 </div>
             )}
