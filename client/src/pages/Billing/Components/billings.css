@@ -11,12 +11,13 @@
   
   .blue-box {
     /* flex: 1; */
-    height: 530px; /* adjust height as needed */
+    height: auto; /* adjust height as needed */
     width: 500px;
     background-color: rgb(29, 93, 157);
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
+    padding-bottom: 20px;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-radius: 10px;
@@ -95,4 +96,11 @@
     padding:15px;
     border-radius: 10px 10px 0px 0px;
     text-align: center;
+  }
+  .left-pane{
+    height: 500px;
+    overflow-y: scroll;
+  }
+  ::-webkit-scrollbar{
+   
   }

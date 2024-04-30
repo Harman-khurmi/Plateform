@@ -33,6 +33,7 @@ export default function Nav() {
         </div>
         <div id="nav">
           <div class="options">
+            <a href="/">Home</a>
             <a href="/main/book">Calendar</a>
             <a href="/main/upcoming">Upcoming Bookings</a>
             <a href="/main/history">History</a>

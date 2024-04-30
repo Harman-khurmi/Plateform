@@ -48,7 +48,7 @@ export default function Login() {
         if (responseData.role === "instructor") {
           window.location.href = "/main/genQR";
         } else {
-          window.location.href = "/main/book";
+          window.location.href = "/";
         }
       } else {
         const errorData = await response.json();

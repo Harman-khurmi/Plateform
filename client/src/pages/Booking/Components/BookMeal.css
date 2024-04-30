@@ -27,7 +27,7 @@
 
 .calendar-header button {
     background-color: transparent;
-    color: #007bff;
+    color: #1D5D9D;
     border: none;
     cursor: pointer;
     font-size: 20px;
@@ -56,12 +56,12 @@
 }
 
 .calendar-day.today {
-    background-color: #007bff;
+    background-color: #1D5D9D;
     color: #fff;
 }
 
 .today {
-    background-color: blue;
+    background-color: #1D5D9D;
     color: white;
 }
 
@@ -81,10 +81,11 @@
 
 .right-box-header {
     padding: 8px 16px;
-    background-color: #007bff;
+    background-color: #1D5D9D;
     color: #fff;
     font-size: 16px;
     border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 
 .right-box-content {

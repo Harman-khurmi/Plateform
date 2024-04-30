@@ -159,7 +159,7 @@ const Calendar = () => {
                             />
                             Dinner
                         </label>
-                        <button onClick={handleSubmit} style={{marginTop:10, padding:1, borderRadius:10}}>Submit</button>
+                        <button onClick={handleSubmit} className="btn3" style={{marginTop:10, padding:1, borderRadius:10, marginLeft:75}}>Submit</button>
                     </div>
                 </div>
             )}
