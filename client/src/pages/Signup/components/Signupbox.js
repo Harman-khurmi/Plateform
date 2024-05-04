@@ -80,6 +80,7 @@ export default function Signup() {
 
   let myStyle = {
     width: 350,
+
   }
   let myStyle2 = {
     marginLeft: 65,
@@ -116,7 +117,34 @@ export default function Signup() {
               name='rollnumber' />
           </div>
           <div className="mb-4" style={myStyle2}>
-            <label for="exampleHostelName" className="form-label">Hostel Name</label>
+          <label for="exampleHostelName" className="form-label">Hostel Name</label>
+          
+          <select className="form-control"
+              style={myStyle}
+              value={user.hostelname}
+              onChange={handleInput}
+              id="exampleHostelName"
+              name='hostelname'>
+                <option value="">Select your hostel</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="PG">PG</option>
+                <option value="Q">Q</option>
+          </select>
+            {/* <label for="exampleHostelName" className="form-label">Hostel Name</label>
             <input
               required
               type="text"
@@ -125,7 +153,7 @@ export default function Signup() {
               value={user.hostelname}
               onChange={handleInput}
               id="exampleHostelName"
-              name='hostelname' />
+              name='hostelname' /> */}
           </div>
           <div className="mb-4" style={myStyle2}>
             <label for="exampleInputPassword1" className="form-label">Password</label>
